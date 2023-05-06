@@ -32,7 +32,7 @@ class CatPageDetail extends StatelessWidget {
               height: MediaQuery.of(context).size.height / 2.2,
               cat.referenceImageId ?? '',
               errorBuilder: (context, error, stackTrace) {
-            return const Text(ERROR_IMAGE_NETWORK);
+            return const Text(errorImageNetwork);
           }),
           const SizedBox(
             height: 10,

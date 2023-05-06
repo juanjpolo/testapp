@@ -42,8 +42,8 @@ class CatsBloc extends Bloc<CatsEvent, CatsState> {
     }
   }
 
-  Future<void> _searchCatsEvent(
-      SearchCatEvent event, Emitter<CatsState> emit) async {
+  Future<void> _searchCatsEvent(SearchCatEvent event, Emitter<CatsState> emit) async {
+    
     emit(LoadingCatsState());
 
     final catsSearch = event.cats.where((element) {
@@ -54,11 +54,9 @@ class CatsBloc extends Bloc<CatsEvent, CatsState> {
     await Future.delayed(const Duration(milliseconds: 300));
 
     if (catsSearch.isEmpty) {
-      emit(const LoadedCatsState()
-          .copyWith(isSearchResults: false, cats: event.cats));
+      emit(const LoadedCatsState().copyWith(isSearchResults: false, cats: event.cats));
     } else {
-      emit(const LoadedCatsState()
-          .copyWith(auxcats: catsSearch, cats: event.cats));
+      emit(const LoadedCatsState().copyWith(auxcats: catsSearch, cats: event.cats));
     }
   }
 
@@ -75,11 +73,11 @@ class CatsBloc extends Bloc<CatsEvent, CatsState> {
   String _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
       case ServerFailure:
-        return SERVER_FAILURE_MESSAGE;
+        return serverFailureMessage;
       case EmptyCacheFailure:
-        return EMPTY_CACHE_FAILURE_MESSAGE;
+        return emptyCacheFailureMessage;
       case OfflineFailure:
-        return OFFLINE_FAILURE_MESSAGE;
+        return offlineFailureMessage;
       default:
         return "Unexpected Error , Please try again later .";
     }

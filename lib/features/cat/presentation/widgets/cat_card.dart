@@ -57,10 +57,10 @@ class CatWidget extends StatelessWidget {
               child: Image.network(
                   fit: BoxFit.cover,
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height / 4,
+                  height: MediaQuery.of(context).size.height / 3,
                   cat.referenceImageId ?? '',
                   errorBuilder: (context, error, stackTrace) {
-                return const Text(ERROR_IMAGE_NETWORK);
+                return const Text(errorImageNetwork);
               }),
             ),
             const SizedBox(

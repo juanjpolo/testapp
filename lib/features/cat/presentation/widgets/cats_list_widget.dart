@@ -29,7 +29,7 @@ class CatsListWidget extends StatelessWidget {
                 },
               )));
     } else {
-      return const MessageDisplay(message: NO_RESULTS);
+      return const MessageDisplay(message: noResults);
     }
   }
 

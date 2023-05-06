@@ -26,7 +26,7 @@ class CatPage extends StatelessWidget {
                 context: context,
                 builder: (_) => Alert(
                       title: 'Error',
-                      content: OFFLINE_FAILURE_MESSAGE,
+                      content: offlineFailureMessage,
                       actions: <Widget>[
                         TextButton(
                           child: const Text("OK"),
